@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGrad" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#0d1527" />
+      <stop offset="50%" stop-color="#04060a" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+
+    <!-- Glow Orbs -->
+    <radialGradient id="cyanOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="amberOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="whiteOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Specular Light Beam Gradient -->
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="20%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="80%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Island Glass Rim Gradient -->
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+    </linearGradient>
+
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="islandShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.95" />
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#06b6d4" flood-opacity="0.2" />
+    </filter>
+    <filter id="beamGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1280" height="500" fill="url(#bgGrad)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="250" cy="120" r="280" fill="url(#cyanOrb)" />
+  <circle cx="1020" cy="220" r="320" fill="url(#amberOrb)" />
+  <circle cx="640" cy="250" r="250" fill="url(#whiteOrb)" />
+
+  <!-- Subtle Futuristic Grid Pattern -->
+  <g opacity="0.06" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="100" x2="1280" y2="100" />
+    <line x1="0" y1="200" x2="1280" y2="200" />
+    <line x1="0" y1="300" x2="1280" y2="300" />
+    <line x1="0" y1="400" x2="1280" y2="400" />
+    <line x1="200" y1="0" x2="200" y2="500" />
+    <line x1="400" y1="0" x2="400" y2="500" />
+    <line x1="640" y1="0" x2="640" y2="500" stroke-dasharray="6 6" />
+    <line x1="880" y1="0" x2="880" y2="500" />
+    <line x1="1080" y1="0" x2="1080" y2="500" />
+  </g>
+
+  <!-- Central Dynamic Island Mockup Capsule -->
+  <g transform="translate(430, 42)" filter="url(#islandShadow)">
+    <!-- Island Capsule Body -->
+    <rect x="0" y="0" width="420" height="62" rx="31" fill="#000000" stroke="url(#rimGrad)" stroke-width="1.5" />
+    
+    <!-- Top 3D Specular Light Beam -->
+    <path d="M 60 1 L 360 1" stroke="url(#beamGrad)" stroke-width="1.8" filter="url(#beamGlow)" />
+
+    <!-- Island Left Indicator: Live Status Pill -->
+    <circle cx="36" cy="31" r="5" fill="#10b981" />
+    <circle cx="36" cy="31" r="9" fill="#10b981" opacity="0.25" />
+    <text x="54" y="35" fill="#f1f5f9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="0.5">LUMINA ISLAND</text>
+
+    <!-- Island Center Separator -->
+    <rect x="175" y="21" width="1" height="20" fill="#ffffff" opacity="0.12" />
+
+    <!-- Island Right: Live Audio Visualizer Bars -->
+    <g transform="translate(325, 23)">
+      <rect x="0" y="5" width="3" height="12" rx="1.5" fill="#38bdf8" />
+      <rect x="6" y="1" width="3" height="20" rx="1.5" fill="#06b6d4" />
+      <rect x="12" y="8" width="3" height="9" rx="1.5" fill="#38bdf8" />
+      <rect x="18" y="3" width="3" height="16" rx="1.5" fill="#06b6d4" />
+      <rect x="24" y="7" width="3" height="10" rx="1.5" fill="#38bdf8" />
+      <rect x="30" y="2" width="3" height="18" rx="1.5" fill="#06b6d4" />
+    </g>
+    <text x="195" y="35" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Dolby Atmos</text>
+  </g>
+
+  <!-- Left Side Floating Card Mockup: CinemaKit Hero Preview -->
+  <g transform="translate(70, 160)" opacity="0.92">
+    <rect x="0" y="0" width="280" height="175" rx="20" fill="#05070d" stroke="rgba(255,255,255,0.1)" stroke-width="1.2" filter="url(#islandShadow)" />
+    <!-- 3D Beam -->
+    <path d="M 30 1 L 250 1" stroke="url(#beamGrad)" stroke-width="1.4" />
+    
+    <!-- Card Header -->
+    <rect x="18" y="18" width="55" height="18" rx="6" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-opacity="0.3" />
+    <text x="26" y="31" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="800">CINEMAKIT</text>
+    <text x="80" y="31" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-mono="true">29 Primitives</text>
+    
+    <text x="18" y="72" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="800">Cyberpunk: 2099</text>
+    <text x="18" y="92" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">4K HDR • Hans Zimmer Score</text>
+    
+    <!-- Mini Scrubber Bar -->
+    <rect x="18" y="115" width="244" height="4" rx="2" fill="rgba(255,255,255,0.1)" />
+    <rect x="18" y="115" width="140" height="4" rx="2" fill="url(#cyanGrad)" />
+    <circle cx="158" cy="117" r="4" fill="#ffffff" />
+    
+    <rect x="18" y="132" width="70" height="24" rx="8" fill="#ffffff" />
+    <text x="35" y="148" fill="#000000" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">▶ Play</text>
+    <rect x="95" y="132" width="80" height="24" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="106" y="148" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600">+ Watchlist</text>
+  </g>
+
+  <!-- Right Side Floating Card Mockup: Terminal / CLI Preview -->
+  <g transform="translate(930, 160)" opacity="0.92">
+    <rect x="0" y="0" width="280" height="175" rx="20" fill="#000000" stroke="rgba(255,255,255,0.1)" stroke-width="1.2" filter="url(#islandShadow)" />
+    <path d="M 30 1 L 250 1" stroke="url(#beamGrad)" stroke-width="1.4" />
+    
+    <!-- Terminal Header Dots -->
+    <circle cx="22" cy="20" r="4" fill="#f43f5e" />
+    <circle cx="34" cy="20" r="4" fill="#f59e0b" />
+    <circle cx="46" cy="20" r="4" fill="#10b981" />
+    <text x="65" y="23" fill="#64748b" font-family="monospace" font-size="10">zsh — lumina-cli</text>
+
+    <!-- Terminal Command Lines -->
+    <text x="20" y="60" fill="#38bdf8" font-family="monospace" font-size="11">$ npx lumina init</text>
+    <text x="20" y="82" fill="#10b981" font-family="monospace" font-size="11">✔ OLED Tokens Configured</text>
+    <text x="20" y="104" fill="#10b981" font-family="monospace" font-size="11">✔ 450ms Spring Physics</text>
+    <text x="20" y="130" fill="#94a3b8" font-family="monospace" font-size="11">$ npx lumina add cinemakit</text>
+    <text x="20" y="152" fill="#38bdf8" font-family="monospace" font-size="11">✨ 120+ Components Ready</text>
+  </g>
+
+  <!-- Main Hero Wordmark & Typography (Center) -->
+  <g transform="translate(640, 225)" text-anchor="middle">
+    <!-- Super Title Tag -->
+    <rect x="-110" y="-35" width="220" height="24" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" />
+    <text x="0" y="-19" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">NEXT-GEN UI SUITE</text>
+
+    <!-- Main Title -->
+    <text x="-40" y="45" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="64" font-weight="900" letter-spacing="-2">Lumina</text>
+    <text x="120" y="45" fill="url(#cyanGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="64" font-weight="300" letter-spacing="-1">UI</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="85" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="400" letter-spacing="0.2">
+      Pure OLED Glassmorphism • Dynamic Island Engine • CinemaKit Suite
+    </text>
+
+    <!-- Feature Badges Row -->
+    <g transform="translate(0, 130)">
+      <!-- Badge 1 -->
+      <g transform="translate(-230, 0)">
+        <rect x="-65" y="-16" width="130" height="30" rx="15" fill="#000000" stroke="rgba(6,182,212,0.4)" stroke-width="1" />
+        <text x="0" y="4" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="700">120+ Components</text>
+      </g>
+      <!-- Badge 2 -->
+      <g transform="translate(-75, 0)">
+        <rect x="-65" y="-16" width="130" height="30" rx="15" fill="#000000" stroke="rgba(245,158,11,0.4)" stroke-width="1" />
+        <text x="0" y="4" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="700">CinemaKit 4K</text>
+      </g>
+      <!-- Badge 3 -->
+      <g transform="translate(80, 0)">
+        <rect x="-65" y="-16" width="130" height="30" rx="15" fill="#000000" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+        <text x="0" y="4" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="700">Spring Physics</text>
+      </g>
+      <!-- Badge 4 -->
+      <g transform="translate(230, 0)">
+        <rect x="-65" y="-16" width="130" height="30" rx="15" fill="#000000" stroke="rgba(168,85,247,0.4)" stroke-width="1" />
+        <text x="0" y="4" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="700">React 18 &amp; 19</text>
+      </g>
+    </g>
+  </g>
+</svg>
